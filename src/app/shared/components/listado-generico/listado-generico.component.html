@@ -1,0 +1,18 @@
+@if (!listado) {
+<div>
+  <img src="AngularPeliculas.gif" />
+</div>
+}
+@else if (listado && listado.length === 0){
+  <div #vacio>
+    <ng-content select="[vacio]"></ng-content>
+  </div>
+
+  @if (!vacio.innerHTML.trim()) {
+  <p>No elements found.</p>
+  }
+}
+@else {
+<!--Show content-->
+<ng-content select="[contenido]"></ng-content>
+}
